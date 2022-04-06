@@ -1,10 +1,12 @@
 package it.devlecce.SpringWebGestioneProdotti.controller;
 
+import it.devlecce.SpringWebGestioneProdotti.avviso.ProdottoNonTrovato;
 import it.devlecce.SpringWebGestioneProdotti.model.Prodotto;
 import it.devlecce.SpringWebGestioneProdotti.repository.ProdottoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,4 +26,8 @@ public class ProdottoRestController {
             logger.info("Prendo tutti i prodotti");
             return repository.findAll();
         }
+    @GetMapping("/prodotto/{id}")
+    public Prodotto trovaProdottoConID(@PathVariable Long id) {
+        return repository.findById(id).orElseThrow( () -> new ProdottoNonTrovato(id));
+    }
     }

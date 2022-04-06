@@ -24,15 +24,15 @@ public class PrimoInserimento {
             SimpleDateFormat dataScadenza = new SimpleDateFormat("dd-MM-yyyy");
             SimpleDateFormat dataAcquisto= new SimpleDateFormat("dd-MM-yyyy");
 
-            Date  Scadenza = dataScadenza.parse("06-04-2022");
-            Date  Acquisto = dataAcquisto.parse("21-09-2022");
-            Prodotto p1 = new Prodotto("pane", 12, 3, Scadenza,Acquisto);
+            Date  scadenza = dataScadenza.parse("06-04-2022");
+            Date  acquisto = dataAcquisto.parse("21-09-2022");
+            Prodotto p1 = new Prodotto("pane", 12, 3, scadenza, acquisto);
             logger.info("nome: " + p1.getNome() + " data di acquisto: " + p1.getDataAcquisto() + " data di scadenza: " + p1.getDataScadenza() + " prezzo: " + p1.getPrezzo() + " quantità: " + p1.getQuantità());
             repository.save(p1);
 
-            Scadenza = dataScadenza.parse("06-04-2022");
-            Acquisto = dataAcquisto.parse("11-10-2025");
-            Prodotto p2 = new Prodotto("biscotti", 7, 9, Scadenza,Acquisto);
+            scadenza = dataScadenza.parse("06-04-2022");
+            acquisto = dataAcquisto.parse("11-10-2025");
+            Prodotto p2 = new Prodotto("biscotti", 7, 9, scadenza,acquisto);
             logger.info("nome: " + p2.getNome() + " data di acquisto: " + p2.getDataAcquisto() + " data di scadenza: " + p2.getDataScadenza() + " prezzo: " + p2.getPrezzo() + " quantità: " + p2.getQuantità());
             repository.save(p2);
 
