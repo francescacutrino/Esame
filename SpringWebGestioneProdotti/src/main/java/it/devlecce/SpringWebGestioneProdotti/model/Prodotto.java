@@ -11,7 +11,7 @@ public class Prodotto {
     private Long id;
     private String nome;
     private float prezzo, quantità;
-    private Date dataAcquisto, dataScadenza;
+    private Date dataacquisto, datascadenza;
 
     private float ranking;
     public Prodotto() {
@@ -20,8 +20,8 @@ public class Prodotto {
         this.nome = nome;
         this.prezzo = prezzo;
         this.quantità = quantità;
-        this.dataAcquisto = dataAcquisto;
-        this.dataScadenza = dataScadenza;
+        this.dataacquisto = dataAcquisto;
+        this.datascadenza = dataScadenza;
     }
 
     public Long getId() {
@@ -52,19 +52,19 @@ public class Prodotto {
         this.quantità = quantità;
     }
 
-    public Date getDataAcquisto() {
-        return dataAcquisto;
+    public Date getDataacquisto() {
+        return dataacquisto;
     }
 
-    public void setDataAcquisto(Date dataAcquisto) {
-        this.dataAcquisto = dataAcquisto;
+    public void setDataacquisto(Date dataacquisto) {
+        this.dataacquisto = dataacquisto;
     }
 
-    public Date getDataScadenza() {
-        return dataScadenza;
+    public Date getDatascadenza() {
+        return datascadenza;
     }
 
-    public void setDataScadenza(Date dataScadenza) {
-        this.dataScadenza = dataScadenza;
+    public void setDatascadenza(Date datascadenza) {
+        this.datascadenza = datascadenza;
     }
 }

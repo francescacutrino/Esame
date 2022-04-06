@@ -27,13 +27,13 @@ public class PrimoInserimento {
             Date  scadenza = dataScadenza.parse("06-04-2022");
             Date  acquisto = dataAcquisto.parse("21-09-2022");
             Prodotto p1 = new Prodotto("pane", 12, 3, scadenza, acquisto);
-            logger.info("nome: " + p1.getNome() + " data di acquisto: " + p1.getDataAcquisto() + " data di scadenza: " + p1.getDataScadenza() + " prezzo: " + p1.getPrezzo() + " quantità: " + p1.getQuantità());
+            logger.info("nome: " + p1.getNome() + " data di acquisto: " + p1.getDataacquisto() + " data di scadenza: " + p1.getDatascadenza() + " prezzo: " + p1.getPrezzo() + " quantità: " + p1.getQuantità());
             repository.save(p1);
 
             scadenza = dataScadenza.parse("06-04-2022");
             acquisto = dataAcquisto.parse("11-10-2025");
             Prodotto p2 = new Prodotto("biscotti", 7, 9, scadenza,acquisto);
-            logger.info("nome: " + p2.getNome() + " data di acquisto: " + p2.getDataAcquisto() + " data di scadenza: " + p2.getDataScadenza() + " prezzo: " + p2.getPrezzo() + " quantità: " + p2.getQuantità());
+            logger.info("nome: " + p2.getNome() + " data di acquisto: " + p2.getDataacquisto() + " data di scadenza: " + p2.getDatascadenza() + " prezzo: " + p2.getPrezzo() + " quantità: " + p2.getQuantità());
             repository.save(p2);
 
             List<Prodotto> prodotti = new ArrayList<>();
