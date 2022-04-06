@@ -7,6 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 public interface ProdottoRepository extends JpaRepository<Prodotto, Long> {
-    List<Prodotto> findBydatadiacquistoBetween(Date datada, Date dataa);
+    //List<Prodotto> findBydatadiacquistoBetween(Date datada, Date dataa);
 
 }
