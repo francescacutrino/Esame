@@ -39,10 +39,19 @@ public class ProdottoRestController {
         return repository.save(nuovoProdotto);
     }
 
-    @PutMapping("/prodotto")
-    public Prodotto aggiornaProdotto(@RequestBody Prodotto prodotto) {
-
-        return repository.save(prodotto);
+    @PutMapping("/prodotto/{id}")
+    public Prodotto aggiornaDatiProdotto(@PathVariable Long id, @RequestBody Prodotto prodotto) {
+        return repository.findById(id).map(nuovoProdotto -> {
+            nuovoProdotto.setNome(prodotto.getNome());
+            nuovoProdotto.setDatascadenza(prodotto.getDatascadenza());
+            nuovoProdotto.setDataacquisto(prodotto.getDataacquisto());
+            nuovoProdotto.setPrezzo(prodotto.getPrezzo());
+            nuovoProdotto.setQuantità(prodotto.getQuantità());
+            return repository.save(nuovoProdotto);
+        }).orElseGet(() -> {
+            prodotto.setId(id);
+            return repository.save(prodotto);
+        });
     }
 
     @DeleteMapping("/prodotto/{id}")
@@ -50,15 +59,30 @@ public class ProdottoRestController {
         repository.deleteById(id);
     }
 
-   /* @GetMapping ("/prodotto/ricercatradate")
+   @GetMapping ("/prodotto/ricercatradate")
     public List <Prodotto> ricercaUtenteTraDate (
             @RequestParam(name="datada") @DateTimeFormat(pattern = "dd-MM-yyyy")
                     Date datada,
             @RequestParam (name = "dataa") @DateTimeFormat(pattern = "dd-MM-yyyy")
                     Date dataa
     ){
-        return repository.findBydatadiacquistoBetween(datada, dataa);
-    }*/
+        return repository.findByDataacquistoBetween(datada, dataa);
+    }
+
+    @GetMapping ("/prodotto/datascadenza")
+    public List <Prodotto> datascadenza (
+            @RequestParam(name="datada") @DateTimeFormat(pattern = "dd-MM-yyyy")
+                    Date datada,
+            @RequestParam (name = "dataa") @DateTimeFormat(pattern = "dd-MM-yyyy")
+                    Date dataa
+    ){
+        return repository.findByDatascadenzaBetween(datada, dataa);
+    }
+
+    @GetMapping ("/prodotto/nome")
+    public List <Prodotto> trovaProdottoNome (@RequestParam String nome) {
+        return repository.findByNome(nome);
+    }
 
     //Caricamento di file
     @PostMapping("/caricafile")
@@ -70,5 +94,4 @@ public class ProdottoRestController {
         return conFormat;
 
     }
-
 }
